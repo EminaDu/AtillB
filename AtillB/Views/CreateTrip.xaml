@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtillB.Views.CreateTrip"
+             Title="CreateTrip">
+    <VerticalStackLayout>
+        <Label 
+            Text="Enter information about trip"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry Placeholder="Enter start Destination"
+                Text="{Binding From}">
+        </Entry>
+        <Entry Placeholder="Enter final Destination"
+                Text="{Binding To}">
+        </Entry>
+        <DatePicker MinimumDate="{Binding CurentDate}"
+                Date="{Binding Date}">
+        </DatePicker>
+        <TimePicker 
+                Time="{Binding Time}">
+        </TimePicker>
+        <Entry Placeholder="Enter free seats number"
+                Text="{Binding FreeSeats}">
+        </Entry>
+
+        <Button
+                x:Name="CreateBtn"
+                Text="Create Trip"
+                Clicked="OnCreateTripClickedAsync"
+                HorizontalOptions="Center" 
+                />
+    </VerticalStackLayout>
+</ContentPage>

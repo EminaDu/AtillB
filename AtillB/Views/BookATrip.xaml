@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtillB.Views.BookATrip"
+             Title="BookATrip">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="ItemTemplate">
+            <Grid RowDefinitions="*" ColumnDefinitions="600,100">
+                <StackLayout Grid.Column="0">
+                    <Label Text="{Binding From}" />
+                    <Label Text="{Binding To}" />
+                    <Label Text="{Binding Date}" />
+                    <Label Text="{Binding FreeSeats}"/>
+                </StackLayout>
+            </Grid> 
+        </DataTemplate>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <Label 
+            Text="All available trips:"
+            VerticalOptions="StartAndExpand" 
+            HorizontalOptions="StartAndExpand" />
+        <Entry Placeholder="Enter From Destination"
+                Text="{Binding FromName}">
+        </Entry>
+        <Entry Placeholder="Enter To Destination"
+                Text="{Binding ToName}">
+        </Entry>
+        <DatePicker MinimumDate="{Binding CurentDate}"
+                Date="{Binding Date}">
+        </DatePicker>
+        <TimePicker 
+                Time="{Binding Time}">
+        </TimePicker>
+
+        <CollectionView ItemsSource="{Binding Trips}" ItemTemplate="{StaticResource ItemTemplate}" SelectionMode="Single" SelectedItem="{Binding SelectedTrip}">
+        </CollectionView>
+
+        <Button Text="Reserve" Command="{Binding BookATripCommand}" CommandParameter="{Binding SelectedTrip}" IsEnabled="{Binding SelectedTrip, Converter={StaticResource NullToBoleanConverter}}"></Button>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtillB.Views.SignupPage"
+             Title="SignupPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Enter personal information"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry Placeholder="Enter Firstname"
+                Text="{Binding Name}">
+        </Entry>
+        <Entry Placeholder="Enter Surname"
+                Text="{Binding Surname}">
+        </Entry>
+        <Entry Placeholder="Enter Username"
+                Text="{Binding Username}">
+        </Entry>
+        <Entry Placeholder="Enter Pasword"
+                Text="{Binding Password}">
+        </Entry>
+
+        <Button
+                x:Name="SignupBtn"
+                Text="Sign up"
+                Clicked="OnSignupClicked"
+                HorizontalOptions="Center" 
+                />
+    </VerticalStackLayout>
+</ContentPage>
